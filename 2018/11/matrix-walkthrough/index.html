@@ -1,0 +1,332 @@
+<!doctype html><html lang=en-us>
+<head>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Matrix Walkthrough","datePublished":"2018-11-16T00:00:00Z","dateModified":"2018-11-16T00:00:00Z","author":{"@type":"Person","name":"The NullCereal Blog","image":"https://nullcereal.com/img/jake-profile.gif"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nullcereal.com\/2018\/11\/matrix-walkthrough\/"},"publisher":{"@type":"Organization","name":"The NullCereal Blog","logo":{"@type":"ImageObject","url":"https://nullcereal.com/img/jake-profile.gif"}},"description":"This is a walkthrough of the Intermediate machine \u0026ldquo;Matrix\u0026rdquo; on Vulnhub. Let\u0026rsquo;s take the red pill and see where this story goes\u0026hellip;.\n ****Spoiler Alert**** ****Spoiler Alert****  So one of the scripts I run includes what I label as a \u0026ldquo;shotgun\u0026rdquo; option, and is essentially nmap -A. Running it here gives the following output:\nThis shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337.","keywords":[]}</script>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=generator content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
+<meta name=author content="The NullCereal Blog">
+<meta name=keywords content>
+<meta name=description content="This is a walkthrough of the Intermediate machine &ldquo;Matrix&rdquo; on Vulnhub. Let&rsquo;s take the red pill and see where this story goes&mldr;.
+ ****Spoiler Alert**** ****Spoiler Alert****  So one of the scripts I run includes what I label as a &ldquo;shotgun&rdquo; option, and is essentially nmap -A. Running it here gives the following output:
+This shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337.">
+<meta property="og:description" content="This is a walkthrough of the Intermediate machine &ldquo;Matrix&rdquo; on Vulnhub. Let&rsquo;s take the red pill and see where this story goes&mldr;.
+ ****Spoiler Alert**** ****Spoiler Alert****  So one of the scripts I run includes what I label as a &ldquo;shotgun&rdquo; option, and is essentially nmap -A. Running it here gives the following output:
+This shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matrix Walkthrough">
+<meta name=twitter:title content="Matrix Walkthrough">
+<meta property="og:url" content="https://nullcereal.com/2018/11/matrix-walkthrough/">
+<meta property="twitter:url" content="https://nullcereal.com/2018/11/matrix-walkthrough/">
+<meta property="og:site_name" content="The NullCereal Blog">
+<meta property="og:description" content="This is a walkthrough of the Intermediate machine &ldquo;Matrix&rdquo; on Vulnhub. Let&rsquo;s take the red pill and see where this story goes&mldr;.
+ ****Spoiler Alert**** ****Spoiler Alert****  So one of the scripts I run includes what I label as a &ldquo;shotgun&rdquo; option, and is essentially nmap -A. Running it here gives the following output:
+This shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337.">
+<meta name=twitter:description content="This is a walkthrough of the Intermediate machine &ldquo;Matrix&rdquo; on Vulnhub. Let&rsquo;s take the red pill and see where this story goes&mldr;.
+ ****Spoiler Alert**** ****Spoiler Alert****  So one of the scripts I run includes what I label as a &ldquo;shotgun&rdquo; option, and is essentially nmap -A. Running it here gives the following output:
+This shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337.">
+<meta property="og:locale" content="en-us">
+<meta property="article:published_time" content="2018-11-16T00:00:00">
+<meta property="article:modified_time" content="2018-11-16T00:00:00">
+<meta property="article:section" content="CTF">
+<meta property="article:tag" content="Hacking">
+<meta property="article:tag" content="Pentesting">
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content="@l0keyb33t">
+<meta name=twitter:creator content="@l0keyb33t">
+<meta property="og:image" content="https://nullcereal.com/img/jake-profile.gif">
+<meta property="twitter:image" content="https://nullcereal.com/img/jake-profile.gif">
+<title>Matrix Walkthrough</title>
+<link rel=icon href=https://nullcereal.com/favicon.png>
+<link rel=canonical href=https://nullcereal.com/2018/11/matrix-walkthrough/>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://nullcereal.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css>
+</head>
+<body>
+<div id=blog>
+<header id=header data-behavior=4>
+<i id=btn-open-sidebar class="fa fa-lg fa-bars"></i>
+<div class=header-title>
+<a class=header-title-link href=https://nullcereal.com/ aria-label="Go to homepage">The NullCereal Blog</a>
+</div>
+<a class=header-right-picture href=https://nullcereal.com/#about aria-label="Open the link: /#about">
+<img class=header-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+</header>
+<nav id=sidebar data-behavior=4>
+<div class=sidebar-container>
+<div class=sidebar-profile>
+<a href=https://nullcereal.com/#about aria-label="Read more about the author">
+<img class=sidebar-profile-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+<h4 class=sidebar-profile-name>The NullCereal Blog</h4>
+<h5 class=sidebar-profile-bio>Nerdy News and Security Topics</h5>
+</div>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/ title=Home>
+<i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i>
+<span class=sidebar-button-desc>Home</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/categories title=Categories>
+<i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden=true></i>
+<span class=sidebar-button-desc>Categories</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/tags title=Tags>
+<i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden=true></i>
+<span class=sidebar-button-desc>Tags</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/archives title=Archives>
+<i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden=true></i>
+<span class=sidebar-button-desc>Archives</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/#about title=About>
+<i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden=true></i>
+<span class=sidebar-button-desc>About</span>
+</a>
+</li>
+</ul>
+<ul class=sidebar-buttons>
+</ul>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/index.xml title=RSS>
+<i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
+<span class=sidebar-button-desc>RSS</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div id=main data-behavior=4 class=hasCoverMetaIn>
+<article class=post id=top>
+<div class="post-header main-content-wrap text-left">
+<h1 class=post-title>
+Matrix Walkthrough
+</h1>
+<div class="postShorten-meta post-meta">
+<time datetime=2018-11-16T00:00:00Z>
+November 16, 2018
+</time>
+<span>in</span>
+<a class=category-link href=https://nullcereal.com/categories/ctf>CTF</a>
+</div>
+</div>
+<div class="post-content markdown">
+<div class=main-content-wrap>
+<p>This is a walkthrough of the Intermediate machine &ldquo;Matrix&rdquo; on <a href=https://www.vulnhub.com/entry/matrix-1,259/>Vulnhub</a>. Let&rsquo;s take the red pill and see where this story goes&mldr;.</p>
+<pre><code>  ****Spoiler Alert****          ****Spoiler Alert****
+</code></pre>
+<p>So one of the scripts I run includes what I label as a &ldquo;shotgun&rdquo; option, and is essentially <strong>nmap -A</strong>. Running it here gives the following output:</p>
+<p><img src=https://nullcereal.com/img/Matrix/nmap.JPG alt=MTX_Nmap></p>
+<p>This shows a typical OpenSSH server with non-typical Python SimpleHTTPServer modules running under ports 80 and 31337. Let&rsquo;s look at these one at a time.</p>
+<p><strong><strong>80</strong></strong></p>
+<p><img src=https://nullcereal.com/img/Matrix/80_web.JPG alt=MTX_80></p>
+<p>This site is pretty cool looking and if we expand it out, we see a small white rabbit centered at the bottom. No source code elements seem to be hidden. If we choose to save the image for further inspection (because it&rsquo;s just weird it being there right?), we see the name of the file <strong>p0rt_31337.png</strong>. Ok, so we&rsquo;re gently being directed to the next web instance.</p>
+<p><strong><strong>31337</strong></strong></p>
+<p><img src=https://nullcereal.com/img/Matrix/31337_web.JPG alt=MTX_31337></p>
+<p>I previously ran Nikto and dirb on both of these sites and did not come up with much other that both pretty much used the same directory structure, and of course Python module for hosting. No fancy exploits found so let&rsquo;s see if we can find anything in the source for this page.</p>
+<p><img src=https://nullcereal.com/img/Matrix/31337_message.JPG alt=MTX_Message></p>
+<p>Ok, nothing else is blaring out, but this looks interesting, and anything worth encoding is worth decoding so let&rsquo;s see what we have:</p>
+<p><img src=https://nullcereal.com/img/Matrix/31337_message_decode.JPG alt=MTX_Decode></p>
+<p>Nice, we have a clue. It looks like there may be a <strong>Cypher.matrix</strong> file available. Sure enough it was available to save under our page.<br>
+Great, now all we need to do is view the file, extract it, may be pull some strings&mldr;.</p>
+<p><img src=https://nullcereal.com/img/Matrix/cypher.matrix.JPG alt=MTX_File_BF></p>
+<p>Or&mldr;.maybe not. WTF man? So there&rsquo;s always a plan. Even if we sometimes have to come up with one. This time though there is actually a plan. This looks like it&rsquo;s encoded, programed or scripted in some crazy language. Luckly I have a handy site that lists many of these esoteric languages we can compare this against to see if we can find a match. The site is <a href=https://esolangs.org/wiki/Hello_world_program_in_esoteric_languages>esolangs.org</a> and lists &ldquo;Hello World&rdquo; in several of these crazy languages for comparison. After going through the list it didn&rsquo;t take too long to see the comparison match:</p>
+<p><img src=https://nullcereal.com/img/Matrix/brainfuck.JPG alt=MTX_BF></p>
+<p>Finding an <a href=https://copy.sh/brainfuck/>online converter</a> didn&rsquo;t take too long either (although I&rsquo;m sure a programatic version is available as well):</p>
+<p><img src=https://nullcereal.com/img/Matrix/cypher.bf.JPG alt=MTX_BF_Decoded></p>
+<p>So from the output it looks like we have our login ID <strong>guest</strong> and most of the password <strong>k1ll0rXX</strong> where &ldquo;XX&rdquo; is an unknown so we&rsquo;ll have to figure out the right combination here.<br>
+Crunch is a great tool for creating wordlists, given you know some detail as to the types of lists you want to make:</p>
+<p><img src=https://nullcereal.com/img/Matrix/crunch.JPG alt=MTX_Crunch></p>
+<p>Here we are telling cruch that we want to create an 8 character wordlist (min/max set to 8), to use the default character set list, and the &ldquo;mixalpha-numeric-all-space&rdquo; list out of that set. The -t specifies our pattern where &ldquo;@&rdquo; are the characters we want crunch to fill in for us using the character set we defined. We will be using -o to output the results to pass2.lst. This gave us over 9,000 different passwords to try. We&rsquo;d better get to crack&rsquo;n!</p>
+<p><img src=https://nullcereal.com/img/Matrix/guestpasscrack.JPG alt=MTX_Hydra></p>
+<p>After a little bit, we got a hit on <strong>k1ll0r7n</strong>. Let&rsquo;s use that combination and login!</p>
+<p><img src=https://nullcereal.com/img/Matrix/guest_rbash.JPG alt=MTX_Rbash></p>
+<p>Hit with a restricted BASH shell. Well let&rsquo;s start poking at our environment and try some different escape sequences. After trying a few centered at the PATH environmental variable I started poking around at vi. I had access to vi, but some of my other attempts did not seem to work. These were focused on /bin/bash and I also do not think I had proper formatting. After entering vi for the last time I entered <strong>:!/bin/sh</strong> and had some freedom from restriction.</p>
+<p>I say some because with my PATH variable still being restricted we have no access to commands, so let&rsquo;s see if we can modify PATH now.</p>
+<p><img src=https://nullcereal.com/img/Matrix/pathset_forcmds.JPG alt=MTX_PATH></p>
+<p>And now we can successfully list contents and have access to all of our normal command set.<br>
+<strong><strong>PRIVESC</strong></strong></p>
+<p>I poked around at some SUID objects, ran a list of processes running as root. But one thing I always check early on is sudo permissions. Just to see what I might have access to.</p>
+<p><img src=https://nullcereal.com/img/Matrix/sudo_ftw.JPG alt=MTX_Sudo></p>
+<p>Sudo - FTW:</p>
+<p><img src=https://nullcereal.com/img/Matrix/flag.JPG alt=MTX_Flag></p>
+<p>Nice flow and I really liked working out the Brainfuck and Crunch bit. Fun vm all the way around.</p>
+</div>
+</div>
+<div id=post-footer class="post-footer main-content-wrap">
+<div class=post-footer-tags>
+<span class="text-color-light text-small">TAGGED IN</span><br>
+<a class="tag tag--primary tag--small" href=https://nullcereal.com/tags/hacking/>Hacking</a>
+<a class="tag tag--primary tag--small" href=https://nullcereal.com/tags/pentesting/>Pentesting</a>
+</div>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2019/09/westwild-walkthrough/ data-tooltip="WestWild Walkthrough" aria-label="NEXT: WestWild Walkthrough">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2018/11/solidstate-walkthrough/ data-tooltip="SolidState Walkthrough" aria-label="PREVIOUS: SolidState Walkthrough">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</article>
+<footer id=footer class=main-content-wrap>
+<span class=copyrights>
+&copy; 2022 The NullCereal Blog. All Rights Reserved
+</span>
+</footer>
+</div>
+<div id=bottom-bar class=post-bottom-bar data-behavior=4>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2019/09/westwild-walkthrough/ data-tooltip="WestWild Walkthrough" aria-label="NEXT: WestWild Walkthrough">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2018/11/solidstate-walkthrough/ data-tooltip="SolidState Walkthrough" aria-label="PREVIOUS: SolidState Walkthrough">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2018/11/matrix-walkthrough/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div id=share-options-bar class=share-options-bar data-behavior=4>
+<i id=btn-close-shareoptions class="fa fa-times"></i>
+<ul class=share-options>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnullcereal.com%2F2018%2F11%2Fmatrix-walkthrough%2F" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fnullcereal.com%2F2018%2F11%2Fmatrix-walkthrough%2F" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fnullcereal.com%2F2018%2F11%2Fmatrix-walkthrough%2F" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span>
+</a>
+</li>
+</ul>
+</div>
+<div id=share-options-mask class=share-options-mask></div>
+</div>
+<div id=about>
+<div id=about-card>
+<div id=about-btn-close>
+<i class="fa fa-times"></i>
+</div>
+<img id=about-card-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+<h4 id=about-card-name>The NullCereal Blog</h4>
+<div id=about-card-bio>Nerdy News and Security Topics</div>
+<div id=about-card-job>
+<i class="fa fa-briefcase"></i>
+<br>
+There is a Jake
+</div>
+<div id=about-card-location>
+<i class="fa fa-map-marker-alt"></i>
+<br>
+In us all
+</div>
+</div>
+</div>
+<div id=cover style=background-image:url(https://nullcereal.com/img/cover.jpg)></div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://nullcereal.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js></script>
+<script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:!1}),$('pre.code-highlight > code, pre > code').each(function(b,a){$(this).hasClass('codeblock')||$(this).addClass('codeblock'),hljs.highlightBlock(a)})})</script>
+</body>
+</html>

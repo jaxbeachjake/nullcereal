@@ -1,0 +1,365 @@
+<!doctype html><html lang=en-us>
+<head>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Security 404 - Disinformation Injection Attacks","datePublished":"2020-09-10T00:00:00Z","dateModified":"2020-09-10T00:00:00Z","author":{"@type":"Person","name":"The NullCereal Blog","image":"https://nullcereal.com/img/jake-profile.gif"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nullcereal.com\/2020\/09\/security-404-disinformation-injection-attacks\/"},"publisher":{"@type":"Organization","name":"The NullCereal Blog","logo":{"@type":"ImageObject","url":"https://nullcereal.com/img/jake-profile.gif"}},"description":" Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.\n Most people may not be familiar with an information security vulnerability called a buffer overflow. Here\u0026rsquo;s a small example:\nBuffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like strcpy() where the size of the destination is not specified. The problem here is two fold: 1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition. 2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.\n","keywords":[]}</script>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=generator content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
+<meta name=author content="The NullCereal Blog">
+<meta name=keywords content>
+<meta name=description content="
+Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.
+
+Most people may not be familiar with an information security vulnerability called a buffer overflow. Here&rsquo;s a small example:
+
+Buffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like strcpy() where the size of the destination is not specified. The problem here is two fold:
+1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition.
+2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.">
+<meta property="og:description" content="
+Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.
+
+Most people may not be familiar with an information security vulnerability called a buffer overflow. Here&rsquo;s a small example:
+
+Buffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like strcpy() where the size of the destination is not specified. The problem here is two fold:
+1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition.
+2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Security 404 - Disinformation Injection Attacks">
+<meta name=twitter:title content="Security 404 - Disinformation Injection Attacks">
+<meta property="og:url" content="https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/">
+<meta property="twitter:url" content="https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/">
+<meta property="og:site_name" content="The NullCereal Blog">
+<meta property="og:description" content="
+Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.
+
+Most people may not be familiar with an information security vulnerability called a buffer overflow. Here&rsquo;s a small example:
+
+Buffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like strcpy() where the size of the destination is not specified. The problem here is two fold:
+1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition.
+2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.">
+<meta name=twitter:description content="
+Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.
+
+Most people may not be familiar with an information security vulnerability called a buffer overflow. Here&rsquo;s a small example:
+
+Buffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like strcpy() where the size of the destination is not specified. The problem here is two fold:
+1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition.
+2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.">
+<meta property="og:locale" content="en-us">
+<meta property="article:published_time" content="2020-09-10T00:00:00">
+<meta property="article:modified_time" content="2020-09-10T00:00:00">
+<meta property="article:section" content="Blog">
+<meta property="article:tag" content="Disinformation">
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content="@l0keyb33t">
+<meta name=twitter:creator content="@l0keyb33t">
+<meta property="og:image" content="https://nullcereal.com/img/jake-profile.gif">
+<meta property="twitter:image" content="https://nullcereal.com/img/jake-profile.gif">
+<title>Security 404 - Disinformation Injection Attacks</title>
+<link rel=icon href=https://nullcereal.com/favicon.png>
+<link rel=canonical href=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://nullcereal.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css>
+</head>
+<body>
+<div id=blog>
+<header id=header data-behavior=4>
+<i id=btn-open-sidebar class="fa fa-lg fa-bars"></i>
+<div class=header-title>
+<a class=header-title-link href=https://nullcereal.com/ aria-label="Go to homepage">The NullCereal Blog</a>
+</div>
+<a class=header-right-picture href=https://nullcereal.com/#about aria-label="Open the link: /#about">
+<img class=header-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+</header>
+<nav id=sidebar data-behavior=4>
+<div class=sidebar-container>
+<div class=sidebar-profile>
+<a href=https://nullcereal.com/#about aria-label="Read more about the author">
+<img class=sidebar-profile-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+<h4 class=sidebar-profile-name>The NullCereal Blog</h4>
+<h5 class=sidebar-profile-bio>Nerdy News and Security Topics</h5>
+</div>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/ title=Home>
+<i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i>
+<span class=sidebar-button-desc>Home</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/categories title=Categories>
+<i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden=true></i>
+<span class=sidebar-button-desc>Categories</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/tags title=Tags>
+<i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden=true></i>
+<span class=sidebar-button-desc>Tags</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/archives title=Archives>
+<i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden=true></i>
+<span class=sidebar-button-desc>Archives</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/#about title=About>
+<i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden=true></i>
+<span class=sidebar-button-desc>About</span>
+</a>
+</li>
+</ul>
+<ul class=sidebar-buttons>
+</ul>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/index.xml title=RSS>
+<i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
+<span class=sidebar-button-desc>RSS</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div id=main data-behavior=4 class=hasCoverMetaIn>
+<article class=post id=top>
+<div class="post-header main-content-wrap text-left">
+<h1 class=post-title>
+Security 404 - Disinformation Injection Attacks
+</h1>
+<div class="postShorten-meta post-meta">
+<time datetime=2020-09-10T00:00:00Z>
+September 10, 2020
+</time>
+<span>in</span>
+<a class=category-link href=https://nullcereal.com/categories/blog>Blog</a>
+</div>
+</div>
+<div class="post-content markdown">
+<div class=main-content-wrap>
+<blockquote>
+<p>Disinformation isn’t just a social engineering attack, it’s an buffer overflow attack of the mind.</p>
+</blockquote>
+<p>Most people may not be familiar with an information security vulnerability called a buffer overflow. Here&rsquo;s a small example:</p>
+<p><img src=https://www.hackingtutorials.org/wp-content/uploads/2016/12/buffer-overflow-strcpy-example.jpg alt=bof></p>
+<p>Buffer Overflow attacks work when a program needs to accept input from the user (think of a program that asks for your username, like the example above). The issue is that the programmer uses a function like <em>strcpy()</em> where the size of the destination is not specified. The problem here is two fold:
+1. If you throw enough data into this input area, it can crash, resulting in a Denial of Service condition.
+2. If you craft a specialized request, taking into account memory allocations, you can trick the program into running almost any code you want it to run.</p>
+<p>The definition of <em>disinformation</em> is as follows:</p>
+<blockquote>
+<p>false information which is intended to mislead, especially propaganda issued by a government organization to a rival power or the media.</p>
+</blockquote>
+<p>Oddly enough (or maybe not so odd) is that the word appears to be a Cold War era term originating in the 1950s from the Russian <em>dezinformatsiya</em>.</p>
+<h1 id=putting-it-together>Putting it together</h1>
+<p>No matter what side of the political fence you may be on buffer overflow attacks exist. It doesn&rsquo;t have to do with politics but with programming techniques that an attacker can take advantage of, effectively altering the behavior of a program.</p>
+<p>Similarly I would posit that the information in our heads can have similar rules as the vulnerable functions programmers sometimes use that end up succumbing to these buffer overflow attacks.</p>
+<p>Whether you label the approach <em>disinformation</em>, mind control, far (left/right) theory, spin, or just opinion, in this ever-connected world there is a war going on for your head space.</p>
+<p>There are marketed ads tailored to preferences specific to behaviors and information linked to your browser actions & history. Television and radio is similarly trying to sway you based on varying degrees of &ldquo;expert&rdquo; opinion or showing group buy-in or support en masse for certain products, services, people, or ideas.</p>
+<p>This is unnervingly similar to a buffer overflow attack, and hot-button issues especially are the payload, where (if we allow it) portions of the campaign end up overwriting what we accept as true fact, leaving our beliefs in control of others with differing agendas. But how does this even happen?</p>
+<p>In phishing awareness training I&rsquo;ve taught employees to guard your emotions because attackers prey on them to their advantage. Feigning emergent situations to place you in, in order to gain a reaction (sometimes any reaction) is in their favor.</p>
+<p>Disinformation Overflow (as I&rsquo;ll call it), usually stems from this same emotional reaction, a sense of urgency where we&rsquo;re being shown something so absolutely outrageous that it could not possibly be true and yet an individual is pleading for action. And who are we if not compassionate and reactive people?</p>
+<p>This is the basis of why Cambridge Analytica (and their parent company &ldquo;SCL Elections&rdquo;) was so successful in their social media strategies. They were able to target, isolate, segregate, or coalesce people based on certain affiliations, make them rally around these affiliations (all online) and then manifest these affiliations into an actual presence culminating in voter turnout.
+They crafted a specific campaign, based on known beliefs and only slightly modified those beliefs based on their contracted goals. This was worse than Disinformation Overflow, this was Disinformation Overflow As-A-Service!</p>
+<p>Trust is a slippery slope. Once it is gained it should not be taken for granted. You can be certain that the shady actors that have it, know the gold they possess. It pains then to read <a href=https://www.news4jax.com/news/weird-news/2020/03/03/is-your-meth-contaminated-with-coronavirus-this-police-department-will-test-it-for-you/>news articles</a> about police departments creating their own disinformation campaigns luring criminals to bring drugs into their local precinct because of <em>reports</em> of the drugs being tainted with COVID-19. It&rsquo;s true that police often use deception, and to be fair this was done prior to the virus spreading into its current pandemic state, but broadly obvious disinformation campaigns posted on social media like this one do nothing but sow additional public distrust in the very institution that always seems to be fighting for it back.</p>
+<h1 id=technofakery>Technofakery</h1>
+<p>To add to the confusion breakfast the artificial-intelligence & machine-learning pancake enter the mix. Tools using these technologies enable the creation of deepfakes like the one of former president <a href="https://www.youtube.com/watch?v=cQ54GDm1eL0">Barack Obama</a>.
+Now before you say that this is not near to realistic remember a couple of things:</p>
+<ol>
+<li>If it appeared on your beat up small iPhone, would you be able to tell the difference?</li>
+<li>This was done in 2018. Keeping in mind that tech capability increases at exponential rates over years, a similar video today would be better.</li>
+</ol>
+<h1 id=is-it-tin-foil-hat-time>Is it tin-foil hat time?</h1>
+<p>Ha, no. This post is not about protecting your brain against the harmful mind control waves emanating from your Facebook account. Sometimes guarding against something means we simply see it and recognize it for what it is, or at least what it <em>could</em> be. Not real. If you have belief in something or someone it should not be something that is shaken easily regardless of the news cycle.
+How do you do this?</p>
+<ol>
+<li>
+<p>I don&rsquo;t let any single news outlet determine my acceptance of any specific reported event. Seeing it on multiple news outlets (especially ones that cater to different party lines), gives more credence to the report.</p>
+</li>
+<li>
+<p>Some stories are just that. <a href=https://www.snopes.com>Snopes.com</a> is great for ferreting out the truth on some of these unbelievable events (past and present).</p>
+</li>
+<li>
+<p>Separate yourself from your biases. Ask yourself tough questions here as these biases can make you a target for some of these campaigns.</p>
+</li>
+<li>
+<p>Separate your beliefs from your biases. To put it bluntly, everyone has a button that can be pushed, and it makes us a target for these types of attacks where some of us will accept any propaganda linked to these beliefs.</p>
+</li>
+<li>
+<p>Respect. Respect yourself. Respect others. Respect others right to be completely and utterly incorrect without having to tell them how incorrect they are.</p>
+</li>
+<li>
+<p>Before retweeting, responding, or any other type of public resonating about something you&rsquo;ve read or watched review 1-5 above.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id=post-footer class="post-footer main-content-wrap">
+<div class=post-footer-tags>
+<span class="text-color-light text-small">TAGGED IN</span><br>
+<a class="tag tag--primary tag--small" href=https://nullcereal.com/tags/disinformation/>Disinformation</a>
+</div>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2020/10/select-that-data-regular-expressions/ data-tooltip="Select That Data! - Regular Expressions" aria-label="NEXT: Select That Data! - Regular Expressions">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2020/07/security-404-balancing-compromise/ data-tooltip="Security 404 - Balancing Compromise" aria-label="PREVIOUS: Security 404 - Balancing Compromise">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</article>
+<footer id=footer class=main-content-wrap>
+<span class=copyrights>
+&copy; 2022 The NullCereal Blog. All Rights Reserved
+</span>
+</footer>
+</div>
+<div id=bottom-bar class=post-bottom-bar data-behavior=4>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2020/10/select-that-data-regular-expressions/ data-tooltip="Select That Data! - Regular Expressions" aria-label="NEXT: Select That Data! - Regular Expressions">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2020/07/security-404-balancing-compromise/ data-tooltip="Security 404 - Balancing Compromise" aria-label="PREVIOUS: Security 404 - Balancing Compromise">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2020/09/security-404-disinformation-injection-attacks/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div id=share-options-bar class=share-options-bar data-behavior=4>
+<i id=btn-close-shareoptions class="fa fa-times"></i>
+<ul class=share-options>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnullcereal.com%2F2020%2F09%2Fsecurity-404-disinformation-injection-attacks%2F" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fnullcereal.com%2F2020%2F09%2Fsecurity-404-disinformation-injection-attacks%2F" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fnullcereal.com%2F2020%2F09%2Fsecurity-404-disinformation-injection-attacks%2F" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span>
+</a>
+</li>
+</ul>
+</div>
+<div id=share-options-mask class=share-options-mask></div>
+</div>
+<div id=about>
+<div id=about-card>
+<div id=about-btn-close>
+<i class="fa fa-times"></i>
+</div>
+<img id=about-card-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+<h4 id=about-card-name>The NullCereal Blog</h4>
+<div id=about-card-bio>Nerdy News and Security Topics</div>
+<div id=about-card-job>
+<i class="fa fa-briefcase"></i>
+<br>
+There is a Jake
+</div>
+<div id=about-card-location>
+<i class="fa fa-map-marker-alt"></i>
+<br>
+In us all
+</div>
+</div>
+</div>
+<div id=cover style=background-image:url(https://nullcereal.com/img/cover.jpg)></div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://nullcereal.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js></script>
+<script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:!1}),$('pre.code-highlight > code, pre > code').each(function(b,a){$(this).hasClass('codeblock')||$(this).addClass('codeblock'),hljs.highlightBlock(a)})})</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Regular expressions on The NullCereal Blog</title><link>https://nullcereal.com/tags/regular-expressions/</link><description>Recent content in Regular expressions on The NullCereal Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nullcereal.com/tags/regular-expressions/index.xml" rel="self" type="application/rss+xml"/><item><title>Select That Data! - Regular Expressions</title><link>https://nullcereal.com/2020/10/select-that-data-regular-expressions/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>https://nullcereal.com/2020/10/select-that-data-regular-expressions/</guid><description>&lt;p>&lt;img src="https://jessehouwing.net/content/images/2018/08/regex.jpg" alt="regex">&lt;/p>
+&lt;p>I&amp;rsquo;ll start off this post by saying that I &lt;strong>DO NOT&lt;/strong> claim to be a &amp;ldquo;RegExpert&amp;rdquo; (Regular Expression Expert). I claim to be an expert in only a couple of things in life:&lt;/p>
+&lt;ol>
+&lt;li>Knowing how to give good doggos belly rubs.&lt;/li>
+&lt;li>Not thinking of anything in particular.&lt;/li>
+&lt;/ol>
+&lt;p>But because neither of these things pays the bills (yet), I&amp;rsquo;ve found that a little knowledge in regular expressions is a good thing to have. Better, sometimes having resources in your back pocket can be useful.&lt;/p>
+&lt;p>I&amp;rsquo;ll show a couple of small examples here, but will also give some examples of resources that can help with some of the tricky situations where regex is needed.&lt;/p></description></item></channel></rss>
