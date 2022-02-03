@@ -155,7 +155,7 @@ October 1, 2020
 <p>It&rsquo;s important to mention that the syntax of regex will be determined by the language you&rsquo;re using, or the interpreter it&rsquo;s being utilized with. For example Python may have some small differences than PCRE (Perl-Compatible Regular Expressions). PCRE is fairly common however, but like I said, there are variations so you will need to ensure you are familiar with the &ldquo;flavor&rdquo; of regex you are using before you start writing your expression.</p>
 <p>So here&rsquo;s a small example of RE using Bash:</p>
 <blockquote>
-<p>$echo &ldquo;John Smith: 555-555-5555&rdquo; | grep -Po &ldquo;\d{3}-\d{3}-\d{4}&rdquo;
+<p>$echo &ldquo;John Smith: 555-555-5555&rdquo; | grep -Po &ldquo;\d{3}-\d{3}-\d{4}&rdquo;<br>
 $555-555-5555</p>
 </blockquote>
 <p>In the above example I echoed the text &ldquo;John Smith: 555-555-5555&rdquo; and redirected it (via &ldquo;|") to the grep utility (specifying &ldquo;P&rdquo; for PCRE regex, and &ldquo;o&rdquo; to output matches only).</p>
@@ -166,31 +166,31 @@ $555-555-5555</p>
 The pattern repeats itself until the last where we&rsquo;re matching against 4 digits instead of the previous 3.</p>
 <p>The cool thing about regex is that there isn&rsquo;t just one way to skin this cat:</p>
 <blockquote>
-<p>$echo &ldquo;John Smith: 555-555-5555&rdquo; | grep -Po &ldquo;\d.+&rdquo;
+<p>$echo &ldquo;John Smith: 555-555-5555&rdquo; | grep -Po &ldquo;\d.+&rdquo;<br>
 $555-555-5555</p>
 </blockquote>
 <p>This is shorter and produces the same match right? So why would we go to the trouble of the first one? This is considered a &ldquo;greedy&rdquo; or &ldquo;lazy&rdquo; match. Here&rsquo;s why:</p>
 <blockquote>
-<p>$echo &ldquo;John Smith: 555-555-5555 ab&rdquo; | grep -Po &ldquo;\d.+&rdquo;
+<p>$echo &ldquo;John Smith: 555-555-5555 ab&rdquo; | grep -Po &ldquo;\d.+&rdquo;<br>
 $555-555-5555 ab</p>
 </blockquote>
 <p>See what I mean? Referring to the regex syntax and knowing your data set here are crucial to ensuring you have the correct pattern for your match.</p>
 <p>What&rsquo;s the worse that can happen? Regex can search, and search, and search by endless greedy matches that produce more and more and more or just go on forever and ever. This eats up resources, which in turn lead to a type of denial of service condition (called ReDoS). More information on ReDoS can be found on the OWASP site <a href=https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS>here</a>.</p>
 <p>Sometimes greedy matches are the only ones that work in the situation you are in though. For that it&rsquo;s still important to know as much about the data set as possible and at least attempt at some boundaries:</p>
 <blockquote>
-<p>$echo &ldquo;John Smith: 555-555-5555 ab&rdquo; | grep -Po &ldquo;\d.+\s&rdquo;
+<p>$echo &ldquo;John Smith: 555-555-5555 ab&rdquo; | grep -Po &ldquo;\d.+\s&rdquo;<br>
 $555-555-5555</p>
 </blockquote>
 <p>The above match works because of the space after the phone number. We start matching at the digit, and match everything between that position and the space.</p>
 <p>If scripting the above text in Python, the script could look something like the following:</p>
 <blockquote>
-<p>#!/usr/bin/python3
-import re
-fh = open(r"test.txt&rdquo;, &ldquo;r&rdquo;).read()
-test = &lsquo;\d.+\s&rsquo;
-p = re.compile(test);
-matches = p.finditer(fh)
-for match in matches:
+<p>#!/usr/bin/python3<br>
+import re<br>
+fh = open(r"test.txt&rdquo;, &ldquo;r&rdquo;).read()<br>
+test = &lsquo;\d.+\s&rsquo;<br>
+p = re.compile(test);<br>
+matches = p.finditer(fh)<br>
+for match in matches:<br>
 print(match[0])</p>
 </blockquote>
 <p>When this script is run the results are simply the phone number as before, you can see the pattern is defined in the &ldquo;test&rdquo; variable and is the same as done in the grep example previous to that. The most important part here is the <em>import re</em> which instructs Python to import the regex module.</p>
