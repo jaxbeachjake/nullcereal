@@ -140,20 +140,20 @@ For this post though we&rsquo;ll just be talking about and view live cookies via
 <li>THe &ldquo;SameSite&rdquo; option</li>
 </ul>
 <p>Let&rsquo;s look at these in more detail.</p>
-<p>Cookie Name: =</p>
+<p>Cookie Name: &lsquo;=&rsquo;</p>
 <ul>
 <li>Defines the name of the cookie and its value. Cookie values are application-specific.<br>
-Expiry Date: expires=</li>
+Expiry Date: expires=''</li>
 <li>Indicates the maximum lifetime of the cookie as an HTTP-datetime stamp.
 <ul>
 <li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.<br>
-Max-Age: max-age=</li>
+Max-Age: max-age=''</li>
 </ul>
 </li>
 <li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.<br>
-Domain: domain=</li>
+Domain: domain=''</li>
 <li>Defines the host to which the cookie will be sent.<br>
-Path: path=</li>
+Path: path=''</li>
 <li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.<br>
 Secure: secure</li>
 <li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.<br>
@@ -161,7 +161,7 @@ HttpOnly: httponly</li>
 <li>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.
 <ul>
 <li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).<br>
-SameSite: SameSite=</li>
+SameSite: SameSite=''</li>
 </ul>
 </li>
 <li>Controls whether or not a cookie is sent with cross-origin requests, providing some protection against Cross-Site Request Forgery (CSRF) attacks. Possible values here are Strict, Lax, & None. There are some specific browser implementations here, and default behavior is that if it is not specified, it is set to Lax. Lax here means that the cookie will not be sent &ldquo;cross-site&rdquo; (say to 3rd party web sites), unless say you&rsquo;re browsing to that &ldquo;origin&rdquo; website from the 3rd party (like when clicking a link).</li>
