@@ -1,0 +1,361 @@
+<!doctype html><html lang=en-us>
+<head>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cookie Security, Wordle, and You","image":"https://nullcereal.com/%28/img/012722/wordle.PNG%29","datePublished":"2022-02-04T00:00:00Z","dateModified":"2022-02-04T00:00:00Z","author":{"@type":"Person","name":"The NullCereal Blog","image":"https://nullcereal.com/img/jake-profile.gif"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nullcereal.com\/2022\/02\/cookie-security-wordle-and-you\/"},"publisher":{"@type":"Organization","name":"The NullCereal Blog","logo":{"@type":"ImageObject","url":"https://nullcereal.com/img/jake-profile.gif"}},"description":"Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called \u0026ldquo;cookies\u0026rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web \u0026ldquo;beacons\u0026rdquo; or trackers, and generally what they intend on doing with said data they\u0026rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.\nSites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it\u0026rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!\n","keywords":[]}</script>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=generator content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
+<meta name=author content="The NullCereal Blog">
+<meta name=keywords content>
+<meta name=description content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
+<meta property="og:description" content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie Security, Wordle, and You">
+<meta name=twitter:title content="Cookie Security, Wordle, and You">
+<meta property="og:url" content="https://nullcereal.com/2022/02/cookie-security-wordle-and-you/">
+<meta property="twitter:url" content="https://nullcereal.com/2022/02/cookie-security-wordle-and-you/">
+<meta property="og:site_name" content="The NullCereal Blog">
+<meta property="og:description" content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
+<meta name=twitter:description content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
+<meta property="og:locale" content="en-us">
+<meta property="article:published_time" content="2022-02-04T00:00:00">
+<meta property="article:modified_time" content="2022-02-04T00:00:00">
+<meta property="article:section" content="Blog">
+<meta property="article:tag" content="Web Security">
+<meta property="article:tag" content="Cookies">
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content="@l0keyb33t">
+<meta name=twitter:creator content="@l0keyb33t">
+<meta property="og:image" content="https://nullcereal.com/img/jake-profile.gif">
+<meta property="twitter:image" content="https://nullcereal.com/img/jake-profile.gif">
+<meta property="og:image" content="https://nullcereal.com/%28/img/012722/wordle.PNG%29">
+<meta property="twitter:image" content="https://nullcereal.com/%28/img/012722/wordle.PNG%29">
+<title>Cookie Security, Wordle, and You</title>
+<link rel=icon href=https://nullcereal.com/favicon.png>
+<link rel=canonical href=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=https://nullcereal.com/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css>
+</head>
+<body>
+<div id=blog>
+<header id=header data-behavior=4>
+<i id=btn-open-sidebar class="fa fa-lg fa-bars"></i>
+<div class=header-title>
+<a class=header-title-link href=https://nullcereal.com/ aria-label="Go to homepage">The NullCereal Blog</a>
+</div>
+<a class=header-right-picture href=https://nullcereal.com/#about aria-label="Open the link: /#about">
+<img class=header-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+</header>
+<nav id=sidebar data-behavior=4>
+<div class=sidebar-container>
+<div class=sidebar-profile>
+<a href=https://nullcereal.com/#about aria-label="Read more about the author">
+<img class=sidebar-profile-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+</a>
+<h4 class=sidebar-profile-name>The NullCereal Blog</h4>
+<h5 class=sidebar-profile-bio>Nerdy News and Security Topics</h5>
+</div>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/ title=Home>
+<i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i>
+<span class=sidebar-button-desc>Home</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/categories title=Categories>
+<i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden=true></i>
+<span class=sidebar-button-desc>Categories</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/tags title=Tags>
+<i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden=true></i>
+<span class=sidebar-button-desc>Tags</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/archives title=Archives>
+<i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden=true></i>
+<span class=sidebar-button-desc>Archives</span>
+</a>
+</li>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/#about title=About>
+<i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden=true></i>
+<span class=sidebar-button-desc>About</span>
+</a>
+</li>
+</ul>
+<ul class=sidebar-buttons>
+</ul>
+<ul class=sidebar-buttons>
+<li class=sidebar-button>
+<a class=sidebar-button-link href=https://nullcereal.com/index.xml title=RSS>
+<i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
+<span class=sidebar-button-desc>RSS</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="post-header-cover
+text-left" style=background-image:url(/%28/img/012722/wordle.PNG%29) data-behavior=4>
+<div class="post-header main-content-wrap text-left">
+<h1 class=post-title>
+Cookie Security, Wordle, and You
+</h1>
+<div class="postShorten-meta post-meta">
+<time datetime=2022-02-04T00:00:00Z>
+February 4, 2022
+</time>
+<span>in</span>
+<a class=category-link href=https://nullcereal.com/categories/blog>Blog</a>
+</div>
+</div>
+</div>
+<div id=main data-behavior=4 class="hasCover
+hasCoverMetaIn">
+<article class=post id=top>
+<div class="post-content markdown">
+<div class=main-content-wrap>
+<p>Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.</p>
+<p>Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular <em>Wordle</em> word game the first time, every time!</p>
+<p>##Putting your hands in the cookie jar</p>
+<p>When you browse a website, your Internet browser negotiates several pieces of information behind the scenes. These pieces of information detail how the website will be displayed, what will be allowed to be viewed, saved, and how it can be accessed, for how long, etc. These items that are negotiated by the web server are called &ldquo;headers&rdquo;, and look like this (when browsing <a href=https://www.google.com>https://www.google.com</a>):</p>
+<p><a href=https://nullcereal.com/img/012722/headers.PNG>HTTP_Headers</a></p>
+<p>The first thing you&rsquo;ll want to do, if asking about cookies, is look at them. You can access your live cookies through your browser&rsquo;s developer mode settings (which is usually accessible via the F12 key). In this post we&rsquo;ll be using Chrome. To view cookies your browser stores in an offline cache you would go into Chrome (we&rsquo;ll assume the Chrome browser for this post): <em>Settings > Security & Privacy > Cookies and Other Site Data > See all cookies and site data</em><br>
+For this post though we&rsquo;ll just be talking about and view live cookies via the F12 key (a.k.a. &ldquo;Developer Mode&rdquo;), under the &ldquo;Application&rdquo; tab:</p>
+<p><a href=https://nullcereal.com/img/012722/devmode.PNG>DevMode</a></p>
+<p>##Options for saving & viewing cookies</p>
+<p>Notice that the cookie name &ldquo;1P_JAR&rdquo; is the same as in the &ldquo;Set-Cookie&rdquo; header highlighted in the earlier pic. Set-Cookie is defined in <a href=https://www.rfc-editor.org/rfc/rfc6265.txt>RFC 6265</a> as well as Mozilla Web Docs <a href=https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie>here</a> and has many attributes, the main ones being as follows:</p>
+<ul>
+<li>The cookie name</li>
+<li>An expiry date</li>
+<li>A max age</li>
+<li>A domain value</li>
+<li>A path value</li>
+<li>The &ldquo;Secure&rdquo; option</li>
+<li>The &ldquo;HTTPOnly&rdquo; option</li>
+<li>THe &ldquo;SameSite&rdquo; option</li>
+</ul>
+<p>Let&rsquo;s look at these in more detail.</p>
+<p>Cookie Name: =</p>
+<ul>
+<li>Defines the name of the cookie and its value. Cookie values are application-specific.<br>
+Expiry Date: expires=</li>
+<li>Indicates the maximum lifetime of the cookie as an HTTP-datetime stamp.
+<ul>
+<li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.<br>
+Max-Age: max-age=</li>
+</ul>
+</li>
+<li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.<br>
+Domain: domain=</li>
+<li>Defines the host to which the cookie will be sent.<br>
+Path: path=</li>
+<li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.<br>
+Secure: secure</li>
+<li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.<br>
+HttpOnly: httponly</li>
+<li>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.
+<ul>
+<li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).<br>
+SameSite: SameSite=</li>
+</ul>
+</li>
+<li>Controls whether or not a cookie is sent with cross-origin requests, providing some protection against Cross-Site Request Forgery (CSRF) attacks. Possible values here are Strict, Lax, & None. There are some specific browser implementations here, and default behavior is that if it is not specified, it is set to Lax. Lax here means that the cookie will not be sent &ldquo;cross-site&rdquo; (say to 3rd party web sites), unless say you&rsquo;re browsing to that &ldquo;origin&rdquo; website from the 3rd party (like when clicking a link).</li>
+</ul>
+<p>From our example screenshot of the &ldquo;1P_JAR&rdquo; cookie values we can see that the only cookie values here not explicitly set are HttpOnly. So this means that the values of this cookie can be read by client-side JavaScript (because HttpOnly is not set).</p>
+<p><a href=https://nullcereal.com/img/012722/viewcookie.PNG>Cookie</a></p>
+<p>The SameSite value is set to &ldquo;None&rdquo; which is a valid setting blocking cookie availability from cross-site requests.</p>
+<p>##Wordle Wins (the hacker method)</p>
+<p>The popular word game <a href=https://www.powerlanguage.co.uk/wordle/>Wordle</a> seems to be everywhere now. The creator Josh Wardle (nice <em>word</em> play there eh?), just sold the game rights to the New York Times for an undisclosed 7-figure amount. Not to shabby for a small client-side game consisting of less than a few thousand word choices.<br>
+The game itself is easy, everyday there is a new five-letter word. You get six guesses to come up with the word. The game tells you if you are guessing the correct letter in the word, or the correct letter in the placement of the word. So you can use the process of elimination fairly well.</p>
+<p>Many games (and applications for that matter) would work on a client/server model where your client (and application or web browser) would interact with a centralized hosted solution. You would communicate with the servers via encrypted HTTPS streams, posting your guesses and it would respond with either right or wrong responses. This is a lot of overhead though just for a game, one which could be boiled down to a simple script. So that&rsquo;s exactly what Wardle did.</p>
+<p>The entirety of Wordle is included in your browser when you contact the website. It does not store cookies specifically but does use local browser storage for keeping track of your gameplay and (as you&rsquo;ll soon see), some other interesting pieces of information.</p>
+<p>##Storage vs Cookie?</p>
+<p>Up to now we&rsquo;ve only discussed cookies (it&rsquo;s the whole point of the post in fact), which is meant to store specific user-based information regarding your website session because the HTTP protocol is &ldquo;stateless&rdquo;. Cookies are sent on each request, so cookies have to be relatively small (max 4kb). So for instances where a larger data set is needing to be read on the client side of things (not the server), storing information in another way is necessary. After all the name of the game in websites is load times, and you don&rsquo;t want to retransmit large amounts of data if you don&rsquo;t have to.</p>
+<p>Enter Local and Session storage. These are areas in the browser that can be used specifically to store data where cookies would not apply. When you clear your browser cache, these areas (along with cookies) will also be cleared.</p>
+<p>Local storage has no expiration date, but Session storage will clear when you close the browser tab (hence &ldquo;Session&rdquo;).</p>
+<p>In Chrome you can view these areas right above where you saw the cookie area before in developer mode (F12).</p>
+<p>So where does Wordle come into play? Well, Wordle is an entirely client-side game available from a website. When you browse to the website the game is downloaded to your browser cache, and the specifics on your gameplay for that day are stored in the Local storage area.</p>
+<p><a href=https://nullcereal.com/img/012722/wordlestore.PNG>Wordle_Store</a></p>
+<p>Notice the bottom of the screenshot where it says &ldquo;solution&rdquo;. That&rsquo;s exactly what it is!</p>
+<p>Ok so this is definitely cheating, but this value could have been encoded (security by obscurity) making it reversible, but taking at least some effort, or encrypted (more effort on the programmer), but requiring a server component to store the keys. It&rsquo;s not important-enough of an item to need enhanced security, but the point here is that (in terms of the game) it is sensitive information, and websites to this type of thing all the time. Housing sensitive data in easily accessible areas where it can be viewed.</p>
+<p>So there you go, learn a little bit about securing communications, and impress your friends and relatives with your &ldquo;genius&rdquo; level Wordling abilities.</p>
+<p>Until next time!</p>
+</div>
+</div>
+<div id=post-footer class="post-footer main-content-wrap">
+<div class=post-footer-tags>
+<span class="text-color-light text-small">TAGGED IN</span><br>
+<a class="tag tag--primary tag--small" href=https://nullcereal.com/tags/web-security/>Web Security</a>
+<a class="tag tag--primary tag--small" href=https://nullcereal.com/tags/cookies/>Cookies</a>
+</div>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--disabled">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2022/01/going-phishing-for-copycats/ data-tooltip="Going Phishing for CopyCats" aria-label="PREVIOUS: Going Phishing for CopyCats">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</article>
+<footer id=footer class=main-content-wrap>
+<span class=copyrights>
+&copy; 2022 The NullCereal Blog. All Rights Reserved
+</span>
+</footer>
+</div>
+<div id=bottom-bar class=post-bottom-bar data-behavior=4>
+<div class=post-actions-wrap>
+<nav>
+<ul class="post-actions post-action-nav">
+<li class=post-action>
+<a class="post-action-btn btn btn--disabled">
+<i class="fa fa-angle-left"></i>
+<span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default tooltip--top" href=https://nullcereal.com/2022/01/going-phishing-for-copycats/ data-tooltip="Going Phishing for CopyCats" aria-label="PREVIOUS: Going Phishing for CopyCats">
+<span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+<i class="fa fa-angle-right"></i>
+</a>
+</li>
+</ul>
+</nav>
+<ul class="post-actions post-action-share">
+<li class="post-action hide-lg hide-md hide-sm">
+<a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post">
+<i class="fa fa-share-alt" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Facebook" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Twitter" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li class="post-action hide-xs">
+<a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://nullcereal.com/2022/02/cookie-security-wordle-and-you/" title="Share on Linkedin" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li class=post-action>
+<a class="post-action-btn btn btn--default" href=#top aria-label="Back to top">
+<i class="fa fa-arrow-up" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div id=share-options-bar class=share-options-bar data-behavior=4>
+<i id=btn-close-shareoptions class="fa fa-times"></i>
+<ul class=share-options>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnullcereal.com%2F2022%2F02%2Fcookie-security-wordle-and-you%2F" aria-label="Share on Facebook">
+<i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fnullcereal.com%2F2022%2F02%2Fcookie-security-wordle-and-you%2F" aria-label="Share on Twitter">
+<i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span>
+</a>
+</li>
+<li class=share-option>
+<a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fnullcereal.com%2F2022%2F02%2Fcookie-security-wordle-and-you%2F" aria-label="Share on Linkedin">
+<i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span>
+</a>
+</li>
+</ul>
+</div>
+<div id=share-options-mask class=share-options-mask></div>
+</div>
+<div id=about>
+<div id=about-card>
+<div id=about-btn-close>
+<i class="fa fa-times"></i>
+</div>
+<img id=about-card-picture src=https://nullcereal.com/img/jake-profile.gif alt="Author's picture">
+<h4 id=about-card-name>The NullCereal Blog</h4>
+<div id=about-card-bio>Nerdy News and Security Topics</div>
+<div id=about-card-job>
+<i class="fa fa-briefcase"></i>
+<br>
+There is a Jake
+</div>
+<div id=about-card-location>
+<i class="fa fa-map-marker-alt"></i>
+<br>
+In us all
+</div>
+</div>
+</div>
+<div id=cover style=background-image:url(https://nullcereal.com/img/cover.jpg)></div>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script>
+<script src=https://nullcereal.com/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js></script>
+<script async crossorigin=anonymous defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js></script>
+<script>$(document).ready(function(){hljs.configure({classPrefix:'',useBR:!1}),$('pre.code-highlight > code, pre > code').each(function(b,a){$(this).hasClass('codeblock')||$(this).addClass('codeblock'),hljs.highlightBlock(a)})})</script>
+</body>
+</html>
