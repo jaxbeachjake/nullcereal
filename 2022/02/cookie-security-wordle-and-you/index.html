@@ -1,15 +1,15 @@
 <!doctype html><html lang=en-us>
 <head>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cookie Security, Wordle, and You","datePublished":"2022-02-04T00:00:00Z","dateModified":"2022-02-04T00:00:00Z","author":{"@type":"Person","name":"The NullCereal Blog","image":"https://nullcereal.com/img/jake-profile.gif"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nullcereal.com\/2022\/02\/cookie-security-wordle-and-you\/"},"publisher":{"@type":"Organization","name":"The NullCereal Blog","logo":{"@type":"ImageObject","url":"https://nullcereal.com/img/jake-profile.gif"}},"description":"Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called \u0026ldquo;cookies\u0026rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web \u0026ldquo;beacons\u0026rdquo; or trackers, and generally what they intend on doing with said data they\u0026rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.\nSites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it\u0026rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!\n","keywords":[]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cookie Security, Wordle, and You","datePublished":"2022-02-04T00:00:00Z","dateModified":"2022-02-04T00:00:00Z","author":{"@type":"Person","name":"The NullCereal Blog","image":"https://nullcereal.com/img/jake-profile.gif"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nullcereal.com\/2022\/02\/cookie-security-wordle-and-you\/"},"publisher":{"@type":"Organization","name":"The NullCereal Blog","logo":{"@type":"ImageObject","url":"https://nullcereal.com/img/jake-profile.gif"}},"description":"Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it\u0026rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!\n","keywords":[]}</script>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=generator content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
 <meta name=author content="The NullCereal Blog">
 <meta name=keywords content>
-<meta name=description content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+<meta name=description content="
 Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
-<meta property="og:description" content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+<meta property="og:description" content="
 Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie Security, Wordle, and You">
@@ -17,9 +17,9 @@ Sites that do not implement secure cookie handling can end up exposing sensitive
 <meta property="og:url" content="https://nullcereal.com/2022/02/cookie-security-wordle-and-you/">
 <meta property="twitter:url" content="https://nullcereal.com/2022/02/cookie-security-wordle-and-you/">
 <meta property="og:site_name" content="The NullCereal Blog">
-<meta property="og:description" content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+<meta property="og:description" content="
 Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
-<meta name=twitter:description content="Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.
+<meta name=twitter:description content="
 Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular Wordle word game the first time, every time!">
 <meta property="og:locale" content="en-us">
 <meta property="article:published_time" content="2022-02-04T00:00:00">
@@ -119,8 +119,9 @@ February 4, 2022
 </div>
 <div class="post-content markdown">
 <div class=main-content-wrap>
-<p>Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.</p>
+<p><img src=https://nullcereal.com/img/012722/wordle.PNG alt=Wordle_Hacked></p>
 <p>Sites that do not implement secure cookie handling can end up exposing sensitive data to attackers, so it&rsquo;s important to know good the basics around cookie hygiene. Read on to see how sites can secure these values, how you can check the security of these values, remove them when needed, and an extra bit on how to win at the popular <em>Wordle</em> word game the first time, every time!</p>
+<p>Websites run on the HypterText Transfer Protocol (HTTP). Sites that need to keep up with specific information about you (or how you interact with the site) save small files called &ldquo;cookies&rdquo; on your computer. Legitimate sites (ones that gather, and process information about you) are obligated to have a privacy policy posted somewhere on their website that will tell you what they collect, how they utilize cookies and other web &ldquo;beacons&rdquo; or trackers, and generally what they intend on doing with said data they&rsquo;ve collected. Additionally, sites that store these cookies tell the browser how they are to be accessed and under what conditions, which can be under secure or insecure methods.</p>
 <p>##Putting your hands in the cookie jar</p>
 <p>When you browse a website, your Internet browser negotiates several pieces of information behind the scenes. These pieces of information detail how the website will be displayed, what will be allowed to be viewed, saved, and how it can be accessed, for how long, etc. These items that are negotiated by the web server are called &ldquo;headers&rdquo;, and look like this (when browsing <a href=https://www.google.com>https://www.google.com</a>):</p>
 <p><img src=https://nullcereal.com/img/012722/headers.PNG alt=HTTP_Headers></p>
@@ -140,20 +141,20 @@ For this post though we&rsquo;ll just be talking about and view live cookies via
 <li>THe &ldquo;SameSite&rdquo; option</li>
 </ul>
 <p>Let&rsquo;s look at these in more detail.</p>
-<p>Cookie Name: &lsquo;=&rsquo;</p>
+<p>Cookie Name: &lsquo;cookie-name>=&lt;cookie-value&rsquo;</p>
 <ul>
 <li>Defines the name of the cookie and its value. Cookie values are application-specific.<br>
-Expiry Date: expires=''</li>
+Expiry Date: expires=&lsquo;date&rsquo;</li>
 <li>Indicates the maximum lifetime of the cookie as an HTTP-datetime stamp.
 <ul>
 <li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.<br>
-Max-Age: max-age=''</li>
+Max-Age: max-age=&lsquo;number&rsquo;</li>
 </ul>
 </li>
 <li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.<br>
-Domain: domain=''</li>
+Domain: domain=&lsquo;domain-value&rsquo;</li>
 <li>Defines the host to which the cookie will be sent.<br>
-Path: path=''</li>
+Path: path=&lsquo;path-value&rsquo;</li>
 <li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.<br>
 Secure: secure</li>
 <li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.<br>
@@ -161,7 +162,7 @@ HttpOnly: httponly</li>
 <li>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.
 <ul>
 <li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).<br>
-SameSite: SameSite=''</li>
+SameSite: SameSite=&lsquo;samesite-value&rsquo;</li>
 </ul>
 </li>
 <li>Controls whether or not a cookie is sent with cross-origin requests, providing some protection against Cross-Site Request Forgery (CSRF) attacks. Possible values here are Strict, Lax, & None. There are some specific browser implementations here, and default behavior is that if it is not specified, it is set to Lax. Lax here means that the cookie will not be sent &ldquo;cross-site&rdquo; (say to 3rd party web sites), unless say you&rsquo;re browsing to that &ldquo;origin&rdquo; website from the 3rd party (like when clicking a link).</li>
