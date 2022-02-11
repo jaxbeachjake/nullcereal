@@ -4,7 +4,7 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=generator content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
+<meta name=generator content="Hugo 0.92.2 with theme Tranquilpeak 0.5.3-BETA">
 <meta name=author content="The NullCereal Blog">
 <meta name=keywords content>
 <meta name=description content="If you&rsquo;re in charge of a domain that others visit on a regular basis, and you want to ensure that users continue to trust that domain, then you want to keep phishers and attackers from creating fakes and copies of it.">
@@ -160,7 +160,11 @@ The results of that comparison are then sent to me via email.</p>
 </ul>
 <p>The last portion of the original script is to email the results of the domcompout.txt file to me, so I can see if there were any new entries:</p>
 <ul>
-<li>mailx -s &ldquo;Domain Check&rdquo; -a /tmp/domcompout.txt <a href=mailto:my@emailaddress.dom>my@emailaddress.dom</a></li>
+<li>
+<blockquote>
+<p>mailx -s &ldquo;Domain Check&rdquo; -a /tmp/domcompout.txt <a href=mailto:my@emailaddress.dom>my@emailaddress.dom</a></p>
+</blockquote>
+</li>
 </ul>
 <p>This is a standard mail client you can use from the CLI.</p>
 <p>Something that&rsquo;s not included here is the original work I did to create the &ldquo;list.txt&rdquo; file. This was manual, and involved running dnstwist as mentioned above to create the CSV file, and reviewing manually. Any additional results found are also reviewed manually. So how are these results reviewed?</p>
