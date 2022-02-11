@@ -144,28 +144,28 @@ We&rsquo;ll just be talking about and viewing live cookies via the F12 key (a.k.
 <li>THe &ldquo;SameSite&rdquo; option</li>
 </ul>
 <p>Let&rsquo;s look at these in more detail.</p>
-<p>Cookie Name: &lsquo;cookie-name=cookie-value&rsquo;</p>
+<p><strong>Cookie Name:</strong> &lsquo;cookie-name=cookie-value&rsquo;</p>
 <ul>
 <li>Defines the name of the cookie and its value. Cookie values are application-specific.<br>
-Expiry Date: expires=&lsquo;date&rsquo;</li>
+<strong>Expiry Date:</strong> expires=&lsquo;date&rsquo;</li>
 <li>Indicates the maximum lifetime of the cookie as an HTTP-datetime stamp.
 <ul>
 <li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.<br>
-Max-Age: max-age=&lsquo;number&rsquo;</li>
+<strong>Max-Age:</strong> max-age=&lsquo;number&rsquo;</li>
 </ul>
 </li>
 <li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.<br>
-Domain: domain=&lsquo;domain-value&rsquo;</li>
+<strong>Domain:</strong> domain=&lsquo;domain-value&rsquo;</li>
 <li>Defines the host to which the cookie will be sent.<br>
-Path: path=&lsquo;path-value&rsquo;</li>
+<strong>Path:</strong> path=&lsquo;path-value&rsquo;</li>
 <li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.<br>
-Secure: secure</li>
+<strong>Secure:</strong> secure</li>
 <li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.<br>
-HttpOnly: httponly</li>
+<strong>HttpOnly:</strong> httponly</li>
 <li>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.
 <ul>
 <li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).<br>
-SameSite: SameSite=&lsquo;samesite-value&rsquo;</li>
+<strong>SameSite:</strong> SameSite=&lsquo;samesite-value&rsquo;</li>
 </ul>
 </li>
 <li>Controls whether or not a cookie is sent with cross-origin requests, providing some protection against Cross-Site Request Forgery (CSRF) attacks. Possible values here are Strict, Lax, & None. There are some specific browser implementations here, and default behavior is that if it is not specified, it is set to Lax. Lax here means that the cookie will not be sent &ldquo;cross-site&rdquo; (say to 3rd party web sites), unless say you&rsquo;re browsing to that &ldquo;origin&rdquo; website from the 3rd party (like when clicking a link).</li>
