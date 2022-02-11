@@ -146,28 +146,43 @@ We&rsquo;ll just be talking about and viewing live cookies via the F12 key (a.k.
 <p>Let&rsquo;s look at these in more detail:</p>
 <p><strong>Cookie Name:</strong> &lsquo;cookie-name=cookie-value&rsquo;</p>
 <ul>
-<li>Defines the name of the cookie and its value. Cookie values are application-specific.<br>
-<strong>Expiry Date:</strong> expires=&lsquo;date&rsquo;</li>
+<li>Defines the name of the cookie and its value. Cookie values are application-specific.</li>
+</ul>
+<p><strong>Expiry Date:</strong> expires=&lsquo;date&rsquo;</p>
+<ul>
 <li>Indicates the maximum lifetime of the cookie as an HTTP-datetime stamp.
 <ul>
-<li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.<br>
-<strong>Max-Age:</strong> max-age=&lsquo;number&rsquo;</li>
+<li>If unspecified the cookie becomes a session cookie and expires when the client shuts off the web browser. Since browsers now have a &ldquo;session restore&rdquo; function, these sessions can be resumed when the browser is executed again.</li>
 </ul>
 </li>
-<li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.<br>
-<strong>Domain:</strong> domain=&lsquo;domain-value&rsquo;</li>
-<li>Defines the host to which the cookie will be sent.<br>
-<strong>Path:</strong> path=&lsquo;path-value&rsquo;</li>
-<li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.<br>
-<strong>Secure:</strong> secure</li>
-<li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.<br>
-<strong>HttpOnly:</strong> httponly</li>
-<li>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.
+</ul>
+<p><strong>Max-Age:</strong> max-age=&lsquo;number&rsquo;</p>
 <ul>
-<li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).<br>
-<strong>SameSite:</strong> SameSite=&lsquo;samesite-value&rsquo;</li>
+<li>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both Expire, and Max-Age are set, Max-Age has precedence.</li>
+</ul>
+<p><strong>Domain:</strong> domain=&lsquo;domain-value&rsquo;</p>
+<ul>
+<li>Defines the host to which the cookie will be sent.</li>
+</ul>
+<p><strong>Path:</strong> path=&lsquo;path-value&rsquo;</p>
+<ul>
+<li>Indicates the path that must exist in the requested URL for the browser to send the cookie header. A &ldquo;/&rdquo; is considered a directory separator.</li>
+</ul>
+<p><strong>Secure:</strong> secure</p>
+<ul>
+<li>Indicates cookies are only sent to the server when the request is made with https, and therefore is more resistant to man-in-the-middle attacks.</li>
+</ul>
+<p><strong>HttpOnly:</strong> httponly</p>
+<ul>
+<li>
+<p>Forbids JavaScript from accessing the cookie, for example, through the Document.Cookie property.</p>
+<ul>
+<li>A cookie created with HttpOnly will still be sent with JavaScript-initialed requests, which helps mitigate from Cross-Site Scripting (XSS).</li>
 </ul>
 </li>
+</ul>
+<p><strong>SameSite:</strong> SameSite=&lsquo;samesite-value&rsquo;</p>
+<ul>
 <li>Controls whether or not a cookie is sent with cross-origin requests, providing some protection against Cross-Site Request Forgery (CSRF) attacks. Possible values here are Strict, Lax, & None. There are some specific browser implementations here, and default behavior is that if it is not specified, it is set to Lax. Lax here means that the cookie will not be sent &ldquo;cross-site&rdquo; (say to 3rd party web sites), unless say you&rsquo;re browsing to that &ldquo;origin&rdquo; website from the 3rd party (like when clicking a link).</li>
 </ul>
 <p>From our example screenshot of the &ldquo;1P_JAR&rdquo; cookie, we can see that the only values here not explicitly set are HttpOnly. So this means that the values of this cookie can be read by client-side JavaScript.</p>
